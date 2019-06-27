@@ -63,6 +63,15 @@ public class DishWasherTest {
         assertThat(result.getStatus(), is(Status.SUCCESS));
     }
 
+//    @Test
+//    public void washerStartAttemtWithDirtPumPShouldResultInError()  {
+//        when(dirtFilter.capacity()).thenReturn(60.0);
+//        when(door.closed()).thenReturn(false);
+//
+//        RunResult result = washer.start(defaultProgram);
+//
+//        Assert.assertThat(result.getStatus(), is(Status.ERROR_PUMP));
+//    }
     @Test
     public void washerShouldUseWaterPumpDrainTwiceWhileLaunchedWithNotRinseProgram() throws PumpException {
         when(dirtFilter.capacity()).thenReturn(60.0);
@@ -84,4 +93,7 @@ public class DishWasherTest {
         Mockito.verify(engine).runProgram(rinseProgram.getProgram().getTimeInMinutes());
 
     }
+
+
+
 }
